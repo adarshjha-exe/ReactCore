@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-const resCards = [
+const resData = [
   {
     card: {
       card: {
@@ -796,19 +796,19 @@ const Header = () => (
 
 // restaurant card component
 const RestaurantCard = (props) => {
-  console.log(props);
-  const { resName, cuisine, rating, eta, restaurentImgId } = props;
-  console.log(restaurentImgId);
+  const { restaurantData } = props;
+  const { cloudinaryImageId, name, cuisines, avgRating, eta } =
+    restaurantData.card.card.info;
   return (
     <div className='res-main-div'>
       <img
         id='res-img'
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/${restaurentImgId}`}
+        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/${cloudinaryImageId}`}
         alt='res-img'
       />
-      <h3>{resName}</h3>
-      <h4>{cuisine}</h4>
-      <h4>{rating} stars</h4>
+      <h3>{name}</h3>
+      <h4>{cuisines}</h4>
+      <h4>{avgRating} stars</h4>
       <h4>{eta} minutes</h4>
     </div>
   );
@@ -822,27 +822,9 @@ const Body = () => (
       <button type='submit'>Search</button>
     </div>
     <div id='body-res-container'>
-      <RestaurantCard
-        resName={resCards?.[0]?.card?.card?.info?.name}
-        cuisine={resCards?.[0]?.card?.card?.info?.cuisines?.join(', ')}
-        rating={resCards?.[0]?.card?.card?.info?.avgRating}
-        eta={resCards?.[0]?.card?.card?.info?.sla?.deliveryTime}
-        restaurentImgId={resCards?.[0]?.card?.card?.info?.cloudinaryImageId}
-      />
-      <RestaurantCard
-        resName={resCards?.[1]?.card?.card?.info?.name}
-        cuisine={resCards?.[1]?.card?.card?.info?.cuisines?.join(', ')}
-        rating={resCards?.[1]?.card?.card?.info?.avgRating}
-        eta={resCards?.[1]?.card?.card?.info?.sla?.deliveryTime}
-        restaurentImgId={resCards?.[1]?.card?.card?.info?.cloudinaryImageId}
-      />
-      <RestaurantCard
-        resName={resCards?.[2]?.card?.card?.info?.name}
-        cuisine={resCards?.[2]?.card?.card?.info?.cuisines?.join(', ')}
-        rating={resCards?.[2]?.card?.card?.info?.avgRating}
-        eta={resCards?.[2]?.card?.card?.info?.sla?.deliveryTime}
-        restaurentImgId={resCards?.[2]?.card?.card?.info?.cloudinaryImageId}
-      />
+      {resData.map((restaurant, index) => (
+        <RestaurantCard key={index} restaurantData={restaurant} />
+      ))}
     </div>
   </div>
 );
