@@ -1,6 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-const resData = [
+export const resData = [
   {
     card: {
       card: {
@@ -774,69 +772,3 @@ const resData = [
     },
   },
 ];
-
-const Header = () => (
-  <div className='header-div'>
-    <div className='logo'>
-      <img
-        src='https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg'
-        alt='logo'
-      />
-    </div>
-    <div className='nav-tags'>
-      <ul>
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Contact Us</li>
-        <li>Cart</li>
-      </ul>
-    </div>
-  </div>
-);
-
-// restaurant card component
-const RestaurantCard = (props) => {
-  const { restaurantData } = props;
-  const { cloudinaryImageId, name, cuisines, avgRating, eta } =
-    restaurantData.card.card.info;
-  return (
-    <div className='res-main-div'>
-      <img
-        id='res-img'
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/${cloudinaryImageId}`}
-        alt='res-img'
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines}</h4>
-      <h4>{avgRating} stars</h4>
-      <h4>{eta} minutes</h4>
-    </div>
-  );
-};
-
-// Body component
-const Body = () => (
-  <div id='main-body'>
-    <div id='body-search-bar'>
-      <input id='input-txt' type='text'></input>
-      <button type='submit'>Search</button>
-    </div>
-    <div id='body-res-container'>
-      {resData.map((restaurant, index) => (
-        <RestaurantCard key={index} restaurantData={restaurant} />
-      ))}
-    </div>
-  </div>
-);
-
-const AppLayout = () => {
-  return (
-    <div className='app'>
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(<AppLayout />);
