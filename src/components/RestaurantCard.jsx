@@ -1,3 +1,5 @@
+import { RES_CARD_IMG } from '../utilities/mockData';
+
 const RestaurantCard = (props) => {
   const { restaurantData } = props;
   const { cloudinaryImageId, name, cuisines, avgRating, eta } =
@@ -6,7 +8,7 @@ const RestaurantCard = (props) => {
     <div className='res-main-div'>
       <img
         id='res-img'
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/${cloudinaryImageId}`}
+        src={`${RES_CARD_IMG}/${cloudinaryImageId}`}
         alt='res-img'
       />
       <h3>{name}</h3>

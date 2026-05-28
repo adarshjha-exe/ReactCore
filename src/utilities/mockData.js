@@ -772,3 +772,9 @@ export const resData = [
     },
   },
 ];
+
+export const APP_LOGO =
+  'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg';
+
+export const RES_CARD_IMG =
+  'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600';

@@ -1,10 +1,9 @@
+import { APP_LOGO } from '../utilities/mockData';
+
 const Header = () => (
   <div className='header-div'>
     <div className='logo'>
-      <img
-        src='https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg'
-        alt='logo'
-      />
+      <img src={APP_LOGO} alt='logo' />
     </div>
     <div className='nav-tags'>
       <ul>
