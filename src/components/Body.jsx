@@ -4,7 +4,7 @@ import RestaurantCard from '../components/RestaurantCard';
 
 const Body = () => {
   // use state variable
-  let [resData] = useState([
+  let [resData, setResData] = useState([
     {
       card: {
         card: {
@@ -56,8 +56,6 @@ const Body = () => {
     },
   ]);
 
-  // Normal JS variable
-  // let resData =[...]
   return (
     <div id='main-body'>
       <div id='body-search-bar'>
@@ -67,11 +65,10 @@ const Body = () => {
           id='top-rated-res-btn'
           type='submit'
           onClick={() => {
-            console.log('clicked');
-            resData = resData.filter((resData) => {
+            let filteredResData = resData.filter((resData) => {
               return resData.card.card.info.avgRating > 4;
             });
-            console.log(resData);
+            setResData(filteredResData);
           }}
         >
           Top Rated Restaurants
