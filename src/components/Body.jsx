@@ -1,9 +1,10 @@
 // import { resData } from '../utilities/mockData.js';
+import { useState } from 'react';
 import RestaurantCard from '../components/RestaurantCard';
 
 const Body = () => {
-  // Normal JS variable
-  let resData = [
+  // use state variable
+  let [resData] = useState([
     {
       card: {
         card: {
@@ -53,7 +54,10 @@ const Body = () => {
         },
       },
     },
-  ];
+  ]);
+
+  // Normal JS variable
+  // let resData =[...]
   return (
     <div id='main-body'>
       <div id='body-search-bar'>
