@@ -1,4 +1,4 @@
-export const resData = [
+export const restaurantData = [
   {
     card: {
       card: {
