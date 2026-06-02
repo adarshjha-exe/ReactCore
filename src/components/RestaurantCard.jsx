@@ -2,8 +2,8 @@ import { RES_CARD_IMG } from '../utilities/mockData';
 
 const RestaurantCard = (props) => {
   const { restaurantData } = props;
-  const { cloudinaryImageId, name, cuisines, avgRating, eta } =
-    restaurantData.card.card.info;
+  const { cloudinaryImageId, name, cuisines, avgRating } = restaurantData?.info;
+  const eta = restaurantData?.info?.sla?.deliveryTime;
   return (
     <div className='res-main-div'>
       <img
@@ -12,7 +12,7 @@ const RestaurantCard = (props) => {
         alt='res-img'
       />
       <h3>{name}</h3>
-      <h4>{cuisines}</h4>
+      <h4>{cuisines?.join(', ')}</h4>
       <h4>{avgRating} stars</h4>
       <h4>{eta} minutes</h4>
     </div>
