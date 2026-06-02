@@ -65,6 +65,32 @@ body {
   color: #ff6b6b;
 }
 
+.login-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(255, 107, 107, 0.3);
+}
+
 /* ============================================
    MAIN CONTENT AREA
    ============================================ */
@@ -160,6 +186,41 @@ body {
   width: 100%;
   padding: 0;
   object-fit: cover;
+}
+
+/* ============================================
+   SHIMMER LOADING EFFECT
+   ============================================ */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 280px;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 0%,
+    #f0f0f0 20%,
+    #e0e0e0 40%,
+    #e0e0e0 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================================
