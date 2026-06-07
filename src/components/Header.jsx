@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { APP_LOGO } from '../utilities/mockData';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -10,10 +11,18 @@ const Header = () => {
       </div>
       <div className='nav-tags'>
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/about'>About Us</Link>
+          </li>
+          <li>
+            <Link to='/contact'>Contact Us</Link>
+          </li>
+          <li>
+            <Link to='/cart'>Cart</Link>
+          </li>
           <li>
             <button
               className='login-btn'
