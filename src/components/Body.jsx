@@ -2,6 +2,7 @@ import { restaurantData } from '../utilities/mockData.js';
 import { useState, useEffect } from 'react';
 import RestaurantCard from '../components/RestaurantCard';
 import Shimmer from '../components/Shimmer.jsx';
+import { Link } from 'react-router-dom';
 
 const Body = () => {
   // use state variable
@@ -67,7 +68,6 @@ const Body = () => {
           type='submit'
           onClick={() => {
             let filteredResData = resData.filter((restaurant) => {
-              console.log(restaurant);
               return restaurant?.info?.avgRating >= 4.5;
             });
             setFilteredRes(filteredResData);
@@ -77,9 +77,16 @@ const Body = () => {
         </button>
       </div>
       <div id='body-res-container'>
-        {filteredRes.map((restaurant, index) => (
-          <RestaurantCard key={index} restaurantData={restaurant} />
-        ))}
+        {filteredRes.map((restaurant, index) => {
+          return (
+            <Link
+              to={'/restaurant/' + restaurant?.info?.id}
+              key={restaurant?.info?.id}
+            >
+              <RestaurantCard restaurantData={restaurant} />
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
