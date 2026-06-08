@@ -8,10 +8,12 @@ class UserClass extends React.Component {
       count3: 3,
       count4: 4,
     };
+    console.log('Child 1 constructor');
   }
 
   // render method which return the piece of JSX
   render() {
+    console.log('Child 1 render');
     const { username } = this.props;
     const { count4 } = this.state;
 
