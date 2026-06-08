@@ -14,10 +14,8 @@ class About extends React.Component {
     return (
       <div>
         <h1>Welcome to the About Page</h1>
-        <UserClass
-          name={'Adarsh Jha Class'}
-          username={'@adarshjha-exe class'}
-        />
+        <UserClass name={'1st Child'} username={'@adarshjha-exe class'} />
+        <UserClass name={'2nd Child'} username={'@elon-exe class'} />
       </div>
     );
   }

@@ -3,17 +3,17 @@ import React from 'react';
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    // state varibale( object)
+    // state variable( object)
     this.state = {
       count3: 3,
       count4: 4,
     };
-    console.log('Child 1 constructor');
+    console.log(this.props.name, 'constructor');
   }
 
   // render method which return the piece of JSX
   render() {
-    console.log('Child 1 render');
+    console.log(this.props.name, 'render');
     const { username } = this.props;
     const { count4 } = this.state;
 
