@@ -1,8 +1,12 @@
-output :
+output of rendering/ lifecycle:
 
 - parent constructor
 - parent render
-- Child 1 constructor
-- Child 1 render
-- child 2 constructor
-- Child 2 render
+- 1st Child constructor
+- 1st Child render
+- GrandChild constructor
+- GrandChild render
+- 2nd Child constructor
+- 2nd Child render
+- GrandChild constructor
+- GrandChild render

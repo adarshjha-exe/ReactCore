@@ -1,4 +1,5 @@
 import React from 'react';
+import TestClass from './TestClass';
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class UserClass extends React.Component {
         <h2>Name : {this.props.name}</h2>
         <h3>Location : BLR</h3>
         <h3>Contact : {username}</h3>
+        <TestClass name={'GrandChild'} />
       </div>
     );
   }
