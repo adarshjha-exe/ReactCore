@@ -1,10 +1,15 @@
 import React from 'react';
 
 class TestClass extends React.Component {
-  // const
+  // constructor
   constructor(props) {
     super(props);
     console.log(this.props.name, 'constructor');
+  }
+
+  // componentDidMount
+  componentDidMount() {
+    console.log(this.props.name, 'componentDidMount');
   }
 
   render() {

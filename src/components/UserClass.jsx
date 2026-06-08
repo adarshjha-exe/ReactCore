@@ -11,6 +11,10 @@ class UserClass extends React.Component {
     };
     console.log(this.props.name, 'constructor');
   }
+  // componentDidMount
+  componentDidMount() {
+    console.log(this.props.name, 'componentDidMount');
+  }
 
   // render method which return the piece of JSX
   render() {
