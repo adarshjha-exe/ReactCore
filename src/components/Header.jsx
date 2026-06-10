@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { APP_LOGO } from '../utilities/mockData';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utilities/useOnlineStatus';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const status = useOnlineStatus();
   return (
     <div className='header-div'>
       <div className='logo'>
@@ -23,6 +25,7 @@ const Header = () => {
           <li>
             <Link to='/cart'>Cart</Link>
           </li>
+          <li>{status ? "🟢" : "🔴"}</li>
           <li>
             <button
               className='login-btn'

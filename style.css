@@ -58,11 +58,48 @@ body {
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-tags > ul > li:hover {
   color: #ff6b6b;
+  background-color: #fff5f5;
+}
+
+.nav-tags > ul > li > a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-tags > ul > li > a:hover {
+  color: #ff6b6b;
+}
+
+.nav-tags > ul > li:has(a) {
+  padding: 10px 16px;
+}
+
+/* Online status indicator */
+.nav-tags > ul > li:nth-child(5) {
+  font-size: 20px;
+  padding: 8px 10px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 .login-btn {

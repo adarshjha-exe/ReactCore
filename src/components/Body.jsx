@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react';
 import RestaurantCard from '../components/RestaurantCard';
 import Shimmer from '../components/Shimmer.jsx';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utilities/useOnlineStatus.jsx';
 
 const Body = () => {
   // use state variable
   const [resData, setResData] = useState([]);
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState('');
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     setTimeout(() => {
@@ -36,6 +38,7 @@ const Body = () => {
       console.error('Error fetching restaurant data:', error);
     }
   }
+  if (!onlineStatus) return <h1>Ooops ! Looks like you are offline</h1>;
   if (resData.length === 0) {
     return <Shimmer />;
   }
