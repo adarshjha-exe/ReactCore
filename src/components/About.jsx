@@ -25,6 +25,5 @@ class About extends React.Component {
     );
   }
 }
-
-// Named import in Class comp
-export { About };
+// Note: Named exports are more useful for utilities/helpers, not for components
+export default About;
