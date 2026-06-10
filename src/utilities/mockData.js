@@ -778,3 +778,5 @@ export const APP_LOGO =
 
 export const RES_CARD_IMG =
   'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600';
+
+export const RES_MENU_URL = `https://proxy.corsfix.com/?https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7333148&lng=76.7794179&restaurantId=`;
