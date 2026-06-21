@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ItemList } from './ItemList';
 
-export const RestaurantCategory = ({ data, showItems, onExpand }) => {
+export const RestaurantCategory = ({ data, showItems, onExpand, dummy }) => {
   const handleClick = () => {
     onExpand();
   };
@@ -18,7 +18,7 @@ export const RestaurantCategory = ({ data, showItems, onExpand }) => {
       </div>
       {/* Content - on click then Items should hide or show */}
       <div className='category-items'>
-        {showItems && <ItemList items={data} />}
+        {showItems && <ItemList items={data} dummy={dummy} />}
       </div>
     </div>
   );

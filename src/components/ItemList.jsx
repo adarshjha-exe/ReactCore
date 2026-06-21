@@ -1,5 +1,6 @@
-export const ItemList = (data) => {
-  const itemCards = data?.items?.itemCards;
+export const ItemList = ({ items, dummy }) => {
+  console.log(dummy); // here dummy is required -- props drilling
+  const itemCards = items?.itemCards;
   return itemCards.map((items, index) => {
     const price =
       items.card.info.price / 100 || items.card.info.defaultPrice / 100;

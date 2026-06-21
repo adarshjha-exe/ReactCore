@@ -8,6 +8,9 @@ const RestaurantMenu = () => {
   const resMenu = useRestaurantMenu(id);
   const [showIndex, setShowIndex] = useState(0); // 0th index card will be expanded
 
+  // 1. props drilling start
+  const dummy = 'dummy';
+
   if (resMenu.length === 0) {
     return <p>Loading.....</p>;
   }
@@ -34,6 +37,7 @@ const RestaurantMenu = () => {
               data={menu?.card?.card}
               showItems={index === showIndex ? true : false}
               onExpand={() => setShowIndex(index)}
+              dummy={dummy}
             />
           );
         })}
