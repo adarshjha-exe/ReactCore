@@ -33,6 +33,7 @@ const RestaurantMenu = () => {
               key={menu?.card?.card?.title}
               data={menu?.card?.card}
               showItems={index === showIndex ? true : false}
+              onExpand={() => setShowIndex(index)}
             />
           );
         })}

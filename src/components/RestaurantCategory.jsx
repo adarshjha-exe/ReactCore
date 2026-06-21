@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { ItemList } from './ItemList';
 
-export const RestaurantCategory = ({ data, showItems }) => {
+export const RestaurantCategory = ({ data, showItems, onExpand }) => {
   const handleClick = () => {
-    setShowItems(!showItems);
+    onExpand();
   };
 
   return (
