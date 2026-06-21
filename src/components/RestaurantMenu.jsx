@@ -25,11 +25,17 @@ const RestaurantMenu = () => {
     <div className='restaurant-menu-container'>
       <h1 className='menu-title'>{name + ' Menu'}</h1>
       <div className='menu-categories'>
-        {menus.map((menu) => {
+        {menus.map((menu, index) => {
           return (
+            // controlled compoent  - that is controlled by parent 'RestaurantMenu'
             <RestaurantCategory
               key={menu?.card?.card?.title}
               data={menu?.card?.card}
+              // 1. for true all the card will be expanded
+              // showItems={true}
+
+              // 2. 0th index card will be expanded
+              showItems={index === 0 ? true : false}
             />
           );
         })}
