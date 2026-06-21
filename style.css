@@ -265,6 +265,153 @@ body {
 }
 
 /* ============================================
+   MENU ITEMS STYLING
+   ============================================ */
+.menu-item {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.menu-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+  transform: translateX(4px);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.item-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+  flex: 1;
+}
+
+.item-price {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+.item-description {
+  margin: 0;
+  font-size: 13px;
+  color: #7f8c8d;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* ============================================
+   RESTAURANT MENU STYLING
+   ============================================ */
+.restaurant-menu-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.menu-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 30px 0;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #667eea;
+  letter-spacing: -0.5px;
+}
+
+.menu-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ============================================
+   CATEGORY SECTION STYLING
+   ============================================ */
+.category-section {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.category-section:hover {
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.15);
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.category-header:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #6a3f94 100%);
+}
+
+.category-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-count {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.dropdown-icon {
+  font-size: 18px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.category-section:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.category-items {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ============================================
    SHIMMER LOADING EFFECT
    ============================================ */
 @keyframes shimmer {
@@ -322,4 +469,8 @@ body {
   border: 1px solid black;
   margin: 10px;
   padding: 5px;
+}
+
+#cat {
+  border: 2px solid red;
 }
