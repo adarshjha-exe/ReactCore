@@ -1,16 +1,20 @@
 import { restaurantData } from '../utilities/mockData.js';
 import { useState, useEffect } from 'react';
-import RestaurantCard from '../components/RestaurantCard';
+import RestaurantCard, {
+  withPromotedLabel,
+} from '../components/RestaurantCard';
 import Shimmer from '../components/Shimmer.jsx';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utilities/useOnlineStatus.jsx';
 
 const Body = () => {
-  // use state variable
   const [resData, setResData] = useState([]);
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState('');
   const onlineStatus = useOnlineStatus();
+
+  // HOC
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     setTimeout(() => {
@@ -86,7 +90,11 @@ const Body = () => {
               to={'/restaurant/' + restaurant?.info?.id}
               key={restaurant?.info?.id}
             >
-              <RestaurantCard restaurantData={restaurant} />
+              {restaurant?.info?.isOpen ? (
+                <RestaurantCardPromoted restaurantData={restaurant} />
+              ) : (
+                <RestaurantCard restaurantData={restaurant} />
+              )}
             </Link>
           );
         })}
