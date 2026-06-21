@@ -6,6 +6,7 @@ import { RestaurantCategory } from './RestaurantCategory';
 const RestaurantMenu = () => {
   const { id } = useParams();
   const resMenu = useRestaurantMenu(id);
+  const [showIndex, setShowIndex] = useState(0); // 0th index card will be expanded
 
   if (resMenu.length === 0) {
     return <p>Loading.....</p>;
@@ -31,11 +32,7 @@ const RestaurantMenu = () => {
             <RestaurantCategory
               key={menu?.card?.card?.title}
               data={menu?.card?.card}
-              // 1. for true all the card will be expanded
-              // showItems={true}
-
-              // 2. 0th index card will be expanded
-              showItems={index === 0 ? true : false}
+              showItems={index === showIndex ? true : false}
             />
           );
         })}
