@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { APP_LOGO } from '../utilities/mockData';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utilities/useOnlineStatus';
+import UserContext from '../utilities/userContext.js';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const status = useOnlineStatus();
+
+  const { loggedInUser } = useContext(UserContext);
+
   return (
     <div className='header-div'>
       <div className='logo'>
@@ -28,7 +32,7 @@ const Header = () => {
           <li>
             <Link to='/cart'>Cart</Link>
           </li>
-          <li>{status ? "🟢" : "🔴"}</li>
+          <li>{status ? '🟢' : '🔴'}</li>
           <li>
             <button
               className='login-btn'
@@ -40,6 +44,7 @@ const Header = () => {
               {isLoggedIn ? 'Logout' : 'Login'}
             </button>
           </li>
+          <li>{loggedInUser}</li>
         </ul>
       </div>
     </div>
