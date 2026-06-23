@@ -17,7 +17,7 @@ const Body = () => {
   // HOC
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
-  // 2. using the context
+  // using the context
   const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
@@ -30,9 +30,9 @@ const Body = () => {
     try {
       const result = await fetch(
         'https://corsproxy.io/?url=' +
-          encodeURIComponent(
-            'https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.27060&lng=85.83340&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING',
-          ),
+        encodeURIComponent(
+          'https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.27060&lng=85.83340&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING',
+        ),
       );
       const data = await result.json();
       const fetchedData =
@@ -86,12 +86,10 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
-        {/* 3. In entire app input text will be there  */}
         <input
           type='text'
           value={loggedInUser}
           onChange={(e) => {
-            console.log(e.target.value);
             setUserName(e.target.value);
           }}
         />

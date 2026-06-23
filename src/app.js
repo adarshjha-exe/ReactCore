@@ -24,11 +24,8 @@ const AppLayout = () => {
   }, []);
 
   return (
-    // 1. in context setting the loggedInUser & state variable function as well
     <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      // Inside the app : "Adarsh"
       <div className='app'>
-        // Inside header : "Elon Musk"
         <Header />
         <Outlet />
       </div>
