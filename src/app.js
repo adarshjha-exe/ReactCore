@@ -24,13 +24,17 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <div className='app'>
-      {/* this is context over-riding  */}
-      <UserContext.Provider value={{ loggedInUser: userName }}>
-        <Header />
-      </UserContext.Provider>
-      <Outlet />
-    </div>
+    // Outside the App context value : "default user"
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      // Inside the app : "Adarsh"
+      <div className='app'>
+        // Inside header : "Elon Musk"
+        <UserContext.Provider value={{ loggedInUser: 'Elon Musk' }}>
+          <Header />
+        </UserContext.Provider>
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
