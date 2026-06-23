@@ -24,14 +24,12 @@ const AppLayout = () => {
   }, []);
 
   return (
-    // Outside the App context value : "default user"
-    <UserContext.Provider value={{ loggedInUser: userName }}>
+    // 1. in context setting the loggedInUser & state variable function as well
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       // Inside the app : "Adarsh"
       <div className='app'>
         // Inside header : "Elon Musk"
-        <UserContext.Provider value={{ loggedInUser: 'Elon Musk' }}>
-          <Header />
-        </UserContext.Provider>
+        <Header />
         <Outlet />
       </div>
     </UserContext.Provider>

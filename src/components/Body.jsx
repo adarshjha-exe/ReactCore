@@ -1,11 +1,12 @@
 import { restaurantData } from '../utilities/mockData.js';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import RestaurantCard, {
   withPromotedLabel,
 } from '../components/RestaurantCard';
 import Shimmer from '../components/Shimmer.jsx';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utilities/useOnlineStatus.jsx';
+import UserContext from '../utilities/UserContext.js';
 
 const Body = () => {
   const [resData, setResData] = useState([]);
@@ -15,6 +16,9 @@ const Body = () => {
 
   // HOC
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+
+  // 2. using the context
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     setTimeout(() => {
@@ -82,6 +86,15 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        {/* 3. In entire app input text will be there  */}
+        <input
+          type='text'
+          value={loggedInUser}
+          onChange={(e) => {
+            console.log(e.target.value);
+            setUserName(e.target.value);
+          }}
+        />
       </div>
       <div id='body-res-container'>
         {filteredRes.map((restaurant, index) => {
