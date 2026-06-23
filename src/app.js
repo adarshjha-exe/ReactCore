@@ -25,6 +25,7 @@ const AppLayout = () => {
 
   return (
     <div className='app'>
+      {/* this is context over-riding  */}
       <UserContext.Provider value={{ loggedInUser: userName }}>
         <Header />
       </UserContext.Provider>
