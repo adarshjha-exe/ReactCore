@@ -5,18 +5,31 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Error from './components/Error.jsx';
 import Contact from './components/Contact.jsx';
 import RestaurantMenu from './components/RestaurantMenu.jsx';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react';
+import UserContext from './utilities/UserContext.js';
 
 // lazy import(import on demand)
 const About = lazy(() => import('./components/About.jsx'));
 const Groceries = lazy(() => import('./components/Groceries.jsx'));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState(null);
+
+  // API call mock
+  useEffect(() => {
+    const data = {
+      name: 'Adarsh',
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
-    <div className='app'>
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className='app'>
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

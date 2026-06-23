@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { RES_CARD_IMG } from '../utilities/mockData';
-import UserContext from '../utilities/userContext.js';
+import UserContext from '../utilities/UserContext.js';
 
 const RestaurantCard = (props) => {
   const { restaurantData } = props;

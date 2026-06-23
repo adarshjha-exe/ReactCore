@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { APP_LOGO } from '../utilities/mockData';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utilities/useOnlineStatus';
-import UserContext from '../utilities/userContext.js';
+import UserContext from '../utilities/UserContext.js';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
