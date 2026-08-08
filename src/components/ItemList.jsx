@@ -7,7 +7,10 @@ export const ItemList = ({ items, dummy }) => {
       <div key={index} className='menu-item'>
         <div className='item-header'>
           <h3 className='item-name'>{items.card.info.name}</h3>
-          <span className='item-price'>₹{price}</span>
+          <div className='item-actions'>
+            <span className='item-price'>₹{price}</span>
+            <button className='add-button'>Add +</button>
+          </div>
         </div>
         <p className='item-description'>{items.card.info.description}</p>
       </div>

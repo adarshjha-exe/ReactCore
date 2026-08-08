@@ -299,6 +299,12 @@ body {
   flex: 1;
 }
 
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .item-price {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -307,7 +313,23 @@ body {
   font-weight: 600;
   font-size: 14px;
   white-space: nowrap;
-  margin-left: 12px;
+}
+
+.add-button {
+  background: #16a34a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-button:hover {
+  background: #15803d;
+  transform: translateY(-2px);
 }
 
 .item-description {
