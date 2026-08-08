@@ -3,12 +3,16 @@ import { APP_LOGO } from '../utilities/mockData';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utilities/useOnlineStatus';
 import UserContext from '../utilities/UserContext.js';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const status = useOnlineStatus();
 
   const { loggedInUser } = useContext(UserContext);
+
+  // subscribing to the store using hook useSelector
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className='header-div'>
@@ -30,7 +34,7 @@ const Header = () => {
             <Link to='/groceries'> Groceries</Link>
           </li>
           <li>
-            <Link to='/cart'>Cart</Link>
+            <Link to='/cart'>CartItems - {`(${cartItems.length})`}</Link>
           </li>
           <li>{status ? '🟢' : '🔴'}</li>
           <li>
