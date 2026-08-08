@@ -7,6 +7,8 @@ import Contact from './components/Contact.jsx';
 import RestaurantMenu from './components/RestaurantMenu.jsx';
 import { lazy, Suspense, useState, useEffect } from 'react';
 import UserContext from './utilities/UserContext.js';
+import { Provider } from 'react-redux';
+import appStore from './utilities/appStore.js';
 
 // lazy import(import on demand)
 const About = lazy(() => import('./components/About.jsx'));
@@ -24,12 +26,15 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className='app'>
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    // 2. Provided the store to the application, store props is important
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className='app'>
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
