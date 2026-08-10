@@ -9,6 +9,7 @@ import { lazy, Suspense, useState, useEffect } from 'react';
 import UserContext from './utilities/UserContext.js';
 import { Provider } from 'react-redux';
 import appStore from './utilities/appStore.js';
+import Cart from './components/Cart.jsx';
 
 // lazy import(import on demand)
 const About = lazy(() => import('./components/About.jsx'));
@@ -71,6 +72,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/restaurant/:id',
         element: <RestaurantMenu />,
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
       },
     ],
   },
