@@ -12,7 +12,7 @@ const Header = () => {
   const { loggedInUser } = useContext(UserContext);
 
   // subscribing to the store using hook useSelector
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store) => store.cart.items); // store → just a parameter name (can be anything)|| store.cart → accesses the cart slice of the Redux state || store.cart.items → accesses the items inside that slice
 
   return (
     <div className='header-div'>

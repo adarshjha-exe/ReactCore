@@ -1,4 +1,14 @@
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utilities/cartSlice.js';
+
 export const ItemList = ({ items, dummy }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = () => {
+    // dispatch an action
+    dispatch(addItem('pizza')); // pizza will be action.payload in obj format
+  };
+
   const itemCards = items?.itemCards;
   return itemCards.map((items, index) => {
     const price =
@@ -9,7 +19,9 @@ export const ItemList = ({ items, dummy }) => {
           <h3 className='item-name'>{items.card.info.name}</h3>
           <div className='item-actions'>
             <span className='item-price'>₹{price}</span>
-            <button className='add-button'>Add +</button>
+            <button className='add-button' onClick={handleAddItem}>
+              Add +
+            </button>
           </div>
         </div>
         <p className='item-description'>{items.card.info.description}</p>
